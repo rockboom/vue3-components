@@ -28,6 +28,14 @@ module.exports = {
             引入的story目录下的文件
         */
         config.resolve.alias
-                            .set('story',resolve('story'));
+                            .set('story',resolve('story'))
+                            .set('src',resolve('src'))
+    },
+    css:{
+        loaderOptions:{
+            sass:{
+                prependData: `@import "src/style/global-import.scss";`
+            }
+        }
     }
 }

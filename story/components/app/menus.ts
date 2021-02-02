@@ -18,5 +18,11 @@ export const MENUS: MenuGroup[] = [
             { name: 'Button', title: '按钮', page: '/normal/button', complete: false },
             { name: 'Layout', title: '布局', page: '/normal/layout', complete: false },
         ]
+    },
+    {
+        name: '表单组件',
+        children: [
+            { name: 'Input', title: '输入框', page: '/normal/input', complete: false },
+        ]
     }
 ]
