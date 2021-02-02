@@ -19,7 +19,7 @@ module.exports = {
             会一开始就异步加载不需要的script文件，预加载组件示例，导致demo示例页面按需加载失效
             需要点击才会加载页面的chunk文件 需要删除这两个插件
         */
-        config.options
+        config.plugins
                 .delete('prefetch-index')
                 .delete('preload-index');
         /*

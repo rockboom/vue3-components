@@ -1,8 +1,8 @@
 <template>
-    <app-navigator defaultPath="normal/button">
+    <app-navigator defaultPath="normal/button" ref="navigator">
         <article class="app-home">
             <section class="app-header">
-                app-header
+                <span @click="goHome">vue3-components</span>
             </section>
             <section class="app-menu">
                 <app-menu/>
@@ -14,18 +14,24 @@
     </app-navigator>
 </template>
 
-<script>
-import { AppNavigator } from './components/navigator/app-navigator.tsx'
+<script lang="ts">
+import { AppNavigator } from './components/navigator/app-navigator'
 import { AppNavigatorPage } from './components/navigator/app-navigator-page'
-import AppMenu from './components/app/app-menu'
-export default {
+import AppMenu from './components/app/app-menu.vue'
+import { defineComponent } from 'vue'
+export default defineComponent({
     name: 'App',
     components: {
         AppNavigator,
         AppNavigatorPage,
         AppMenu
     },
-}
+    methods:{
+        goHome(){
+            (this.$refs.navigator as any).$._refer.methods.go('home');
+        }
+    }
+})
 </script>
 
 <style lang="scss">
