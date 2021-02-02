@@ -25,20 +25,24 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 目录结构说明
 - src: 组件源码
-- story: 组件测试代码
-    - components: 存放组件代码
-        - navigator: 导航组件
-    - pages: 放组件示例页面，同时也是路由的根目录
-        - normal: 存放普通组件 如button、input
-            - button.vue
-            - icon.vue
-            - color.vue
+    - story: 组件测试代码
+        - components: 存放组件代码
+            - navigator: 导航组件
+        - pages: 放组件示例页面，同时也是路由的根目录
+            - normal: 存放普通组件 如button、input
+                - button.vue
+                - icon.vue
+                - color.vue
+                - ...
+            - form: 表单组件的示例页面目录
+            - table: 表格组件的实例页面目录
+            - service: 服务组件的实例页面目录 如dialog
             - ...
-        - form: 表单组件的示例页面目录
-        - table: 表格组件的实例页面目录
-        - service: 服务组件的实例页面目录 如dialog
         - ...
-    - ...
+    - style: 存放组件的样式文件
+        - public: 存放全局引用的样式，用于格式化网页的一些配置文件，里面放的是常量配置。样式文件不能重复引入多次，否则会生成重复的样式代码
+        - theme: 用来放主题的一些文件，主要是定义变量，如背景颜色，字体等
+        - global-import: 存放全局引入的变量。变量可以重复引入，不会生成重复的样式代码
 ### 导航组件
 路由一个由两个组件组成：
 
