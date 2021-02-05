@@ -1,7 +1,8 @@
+import { designComponent } from "src/use/designComponent";
 import { computed, defineComponent, ref } from "vue";
 import './input.scss';
 
-export default defineComponent({
+export default designComponent({
     name: "pl-input",
     props: {
         status: { type: String, default: "primary" }
@@ -10,24 +11,34 @@ export default defineComponent({
         const modelValue = ref('');
         const inputRef = ref(null as null | HTMLInputElement);
 
-        const classes = computed(()=>[
+        const classes = computed(() => [
             'pl-input',
             `pl-input-status-${props.status}`
         ]);
         const methods = {
-            focus:()=>{
+            focus: (flag: boolean) => {
                 inputRef.value!.focus();
+                if (flag) {
+                    modelValue.value = "";
+                }
             },
-            clear:()=>{
+            clear: () => {
                 modelValue.value = '';
             }
         }
-        return () => (
-            <div class={classes.value}>
-                <input class="pl-input-inner" type="text" v-model={modelValue.value} ref={inputRef}/>
-                <button onClick={methods.clear}>Clear</button>
-                <button onClick={methods.focus}>Focus</button>
-            </div>
-        )
+        return {
+            refer: {
+                methods,
+                modelValue
+            },
+            render: () => (
+                <div class={classes.value}>
+                    <input class="pl-input-inner" type="text" v-model={modelValue.value} ref={inputRef} />
+                    <button onClick={methods.clear}>Clear</button>
+                    <button onClick={() => methods.focus(true)}>Focus</button>
+                </div>
+            )
+
+        }
     }
 })
