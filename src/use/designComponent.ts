@@ -1,4 +1,4 @@
-import { ComponentPropsOptions, defineComponent, ExtractPropTypes, getCurrentInstance, SetupContext } from "vue";
+import { ComponentPropsOptions, defineComponent, ExtractPropTypes, getCurrentInstance, inject, provide, SetupContext } from "vue";
 
 export function designComponent<
     PropsOptions extends Readonly<ComponentPropsOptions>,
@@ -7,12 +7,13 @@ export function designComponent<
     >(options: {
         name?: string,
         props?: PropsOptions,
+        provideRefer?: boolean,
         setup: (props: Props, setupContext: SetupContext) => {
             refer?: Refer,
             render: () => any
         }
     }) {
-    const { setup, ...leftOptions } = options;
+    const { setup, provideRefer, ...leftOptions } = options;
     return {
         ...defineComponent({
             ...leftOptions,
@@ -24,6 +25,13 @@ export function designComponent<
                 }
                 const { refer, render } = setup(props, setupContext);
                 ctx._refer = refer;
+                if (provideRefer) {
+                    if (leftOptions.name) {
+                        console.error("designComponent:name is required when provideRefer is true!");
+                    } else {
+                        provide(`@@${leftOptions.name}`, refer);
+                    }
+                }
                 return render;
             }
         } as any),
@@ -35,6 +43,9 @@ export function designComponent<
                         return ((ctx as any).$refs[refName].$._refer) as Refer | null;
                     }
                 }
+            },
+            inject: (defaultValue?: any) => {
+                return inject(`@@${leftOptions.name}`, defaultValue) as Refer;
             }
         }
     }
