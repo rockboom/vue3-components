@@ -26,7 +26,7 @@ export function designComponent<
                 const { refer, render } = setup(props, setupContext);
                 ctx._refer = refer;
                 if (provideRefer) {
-                    if (leftOptions.name) {
+                    if (!leftOptions.name) {
                         console.error("designComponent:name is required when provideRefer is true!");
                     } else {
                         provide(`@@${leftOptions.name}`, refer);
