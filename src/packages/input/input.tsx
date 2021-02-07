@@ -1,6 +1,7 @@
 import { designComponent } from "src/use/designComponent";
 import { computed, defineComponent, ref } from "vue";
 import './input.scss';
+console.log("加载了 Input 组件");
 
 export default designComponent({
     name: "pl-input",
