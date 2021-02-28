@@ -8,8 +8,8 @@ module.exports = {
     },
     externals: {
         vue: {
-            root: 'Vue',
-            commonjs: 'vue',
+            root: 'Vue', // 引入浏览器环境下的Vue
+            commonjs: 'vue', // 引入node环境下的Vue
             commonjs2: 'vue',
         }
     },
@@ -18,8 +18,8 @@ module.exports = {
         path: $utils.resolve('dest'),
         libraryTarget: 'umd',
         // libraryExport: 'default',
-        library: 'PlainUIV3',
-        globalObject: 'this'
+        library: 'Vue3Components',
+        globalObject: 'this' // 导出的对象应该赋值给谁 此处是指把导出的对象赋值给浏览器的window对象
     },
     plugins: [
         new $utils.webpack.ProgressPlugin(),
@@ -61,7 +61,7 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            prependData: `@import "src/style/global-import.scss";`
+                            prependData: `@import "src/style/global-import.scss";` // 全局引入的文件
                         }
                     }
                 ]
