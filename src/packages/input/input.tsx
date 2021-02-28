@@ -39,7 +39,6 @@ export default designComponent({
                     <button onClick={() => methods.focus(true)}>Focus</button>
                 </div>
             )
-
         }
     }
 })

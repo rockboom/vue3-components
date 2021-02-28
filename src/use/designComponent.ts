@@ -24,7 +24,15 @@ export function designComponent<
                     return () => null;
                 }
                 const { refer, render } = setup(props, setupContext);
-                ctx._refer = refer;
+                if(!!refer){
+                    const duplicateKey = Object.keys(leftOptions.props||{})
+                        .find(i=>Object.prototype.hasOwnProperty.call(refer as any,i));
+                    if(!!duplicateKey){
+                        console.log(`designComponent: duplicate key ${duplicateKey} in refer`);
+                    }else{
+                        Object.assign(ctx.proxy,refer);
+                    }
+                }
                 if (provideRefer) {
                     if (!leftOptions.name) {
                         console.error("designComponent:name is required when provideRefer is true!");
@@ -37,10 +45,10 @@ export function designComponent<
         } as any),
         use: {
             ref: (refName: string) => {
-                const ctx = (getCurrentInstance() as any).ctx;
+                const ctx = getCurrentInstance()!
                 return {
                     get value() {
-                        return ((ctx as any).$refs[refName].$._refer) as Refer | null;
+                        return ctx.refs[refName] as Refer | null
                     }
                 }
             },

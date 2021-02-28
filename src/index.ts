@@ -12,11 +12,11 @@ function install(app: App) {
     plugins.forEach(app.use)
 }
 
-export default {
+export default { // 默认导出
     install,
 }
 
-export {
+export { // 具名导出 对应rollup的配置项  exports: 'named'
     Input,
     Button,
 
