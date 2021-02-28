@@ -1,4 +1,4 @@
-import { designComponent } from "src/use/designComponent";
+import { designComponent } from "../..//use/designComponent";
 import { computed, defineComponent, ref } from "vue";
 import './input.scss';
 console.log("加载了 Input 组件");

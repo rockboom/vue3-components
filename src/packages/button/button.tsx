@@ -1,4 +1,4 @@
-import { designComponent } from "src/use/designComponent";
+import { designComponent } from "../../use/designComponent";
 import { computed } from "vue";
 import './button.scss';
 console.log("加载了 Button 组件");
