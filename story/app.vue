@@ -2,7 +2,7 @@
     <app-navigator defaultPath="normal/button" ref="navigator">
         <article class="app-home">
             <section class="app-header">
-                <span @click="goHome">vue3-components</span>
+                <span @click="goHome">Hello UI</span>
             </section>
             <section class="app-menu">
                 <app-menu/>

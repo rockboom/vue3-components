@@ -79,7 +79,7 @@ export default {
                     }
                 }
 
-                .pl-icon {
+                .h-icon {
                     position: absolute;
                     right: 16px;
                     line-height: 40px;
