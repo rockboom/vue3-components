@@ -57,7 +57,8 @@ $dt: map_get($theme-default, '');
     $value: plv(color#{$key}) !global;
 
     $name: to-lower-case($key) !global;
-    &.pl-#{$component}-status-#{$name} {
+    // 此处会生成 .h-的前缀
+    &.h-#{$component}-status-#{$name} {
       @content;
     }
   }
@@ -69,7 +70,7 @@ $dt: map_get($theme-default, '');
     $value: plv(shape#{$key}) !global;
     $name: to-lower-case($key) !global;
 
-    &.pl-#{$component}-shape-#{$name} {
+    &.h-#{$component}-shape-#{$name} {
       @content;
     }
   }
@@ -81,7 +82,7 @@ $dt: map_get($theme-default, '');
     $value: plv(size#{$key}) !global;
     $name: to-lower-case($key) !global;
 
-    &.pl-#{$component}-size-#{$name} {
+    &.h-#{$component}-size-#{$name} {
       @content;
     }
   }

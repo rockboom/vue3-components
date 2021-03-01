@@ -60,7 +60,7 @@ export function designComponent<
 }
 
 // const Button = designComponent({
-//     name: 'pl-button',
+//     name: 'h-button',
 //     props: {
 //         label: { type: String },
 //         age: { type: Number, default: 10 },

@@ -3,15 +3,15 @@ import { computed } from "vue";
 import './button.scss';
 console.log("加载了 Button 组件");
 export default designComponent({
-    name:'pl-button',
+    name:'h-button',
     props:{
         status:{type:String,default:'primary'},
         label:{type:String}
     },
     setup(props,setupContext){
         const classes = computed(()=>[
-            'pl-button',
-            `pl-button-status-${props.status}`
+            'h-button',
+            `h-button-status-${props.status}`
         ])
         return {
             render:()=>(

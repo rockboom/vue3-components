@@ -1,10 +1,10 @@
 <template>
     <div class="demo-input">
-        <pl-input></pl-input>
+        <h-input></h-input>
         <h4>状态</h4>
-        <pl-input v-for="item in ['primary','success','warn','error','info']" :key="item" :status="item" style="margin-left:8px"></pl-input>
+        <h-input v-for="item in ['primary','success','warn','error','info']" :key="item" :status="item" style="margin-left:8px"></h-input>
         <h4>类型提示</h4>
-        <pl-input ref="myInput"/>
+        <h-input ref="myInput"/>
         <button @click="outerClear">outer clear</button>
         <button @click="outerFocus">outer focus</button>
     </div>

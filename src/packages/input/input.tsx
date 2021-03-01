@@ -4,7 +4,7 @@ import './input.scss';
 console.log("加载了 Input 组件");
 
 export default designComponent({
-    name: "pl-input",
+    name: "h-input",
     props: {
         status: { type: String, default: "primary" }
     },
@@ -13,8 +13,8 @@ export default designComponent({
         const inputRef = ref(null as null | HTMLInputElement);
 
         const classes = computed(() => [
-            'pl-input',
-            `pl-input-status-${props.status}`
+            'h-input',
+            `h-input-status-${props.status}`
         ]);
         const methods = {
             focus: (flag: boolean) => {
@@ -34,7 +34,7 @@ export default designComponent({
             },
             render: () => (
                 <div class={classes.value}>
-                    <input class="pl-input-inner" type="text" v-model={modelValue.value} ref={inputRef} />
+                    <input class="h-input-inner" type="text" v-model={modelValue.value} ref={inputRef} />
                     <button onClick={methods.clear}>Clear</button>
                     <button onClick={() => methods.focus(true)}>Focus</button>
                 </div>
